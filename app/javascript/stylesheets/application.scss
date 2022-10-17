@@ -1,0 +1,158 @@
+#tasks-list{
+  list-style: none;
+  padding-left: 0;
+  li{
+    cursor: pointer;
+  }
+}
+
+body {
+    ::-webkit-scrollbar {
+      display: none;
+    }  
+  }
+
+  .card-header{
+    font-family: Aesthetic Tebal Miring;
+    background-image:url(/assets/img/underline.jpg);
+    height: 150px;
+    text-align: center
+  }
+
+  .list-group{
+    font-family: Aesthetic Tebal Miring;
+  }
+  
+  .badge{
+    text-align: end;
+  }
+
+  .chat-room {
+    height: 100vh;
+  
+    #messages {
+      height: 100%;
+      overflow-y: scroll;
+      padding-bottom: 200px;
+      padding-top: 20px;
+    }
+  
+    .navbar {
+      border-bottom: 1px solid #eeeeee;
+      margin-left: -15px;
+      width: calc(100% + 30px);
+    }
+  
+    .message {
+      min-height: 59px;
+      .content-container {
+        display: inline-block;
+        .content {
+          background-color: #eeeeee;
+          padding: 8px 16px;
+          border-radius: 20px;
+        }
+        .author {
+          font-size: 0.8rem;
+          color: #777777;
+          margin-left: 10px;
+        }
+      }
+      &.me {
+        .content-container {
+          float: right;
+          .content {
+            background-color: #007bff;
+            color: white;
+          }
+        }
+      }
+    }
+    .chat-box {
+      position: absolute;
+      bottom: -10px;
+      padding: 20px;
+      width: 100%;
+      margin-left: -15px;
+      background-color: white;
+      border-top: 1px solid #eeeeee;
+      input[type=text] {
+        height: 45px;
+        font-size: 18px;
+        padding: 8px;
+      }
+      .btn {
+        height: 45px;
+      }
+    }
+  }
+  
+  .card.no-outline {
+    border: none;
+  }
+  
+  .room-link {
+    &:hover {
+    text-decoration: none;
+    }
+    .room-card {
+      transition: background-color 0.5s ease;
+      border-radius: 20px;
+      &:hover {
+        background-color: #eeeeee;
+      }
+      &.active {
+        background-color: black;
+        .name {
+          color: white;
+        }
+        .member-count {
+          color: #e0e0e0;
+        }
+      }
+      .name {
+        font-weight: bold;
+        color: black;
+      }
+      .member-count {
+        color: #777777;
+        font-weight: light;
+      }
+    }
+  }
+  
+  .rooms-sidebar {
+    border-right: 1px solid #eeeeee;
+  }
+
+.masthead{
+  background-image:url(/assets/img/text.jpg);
+  height: 640px;
+}
+
+img{
+  -webkit-filter: brightness(100%);
+  margin-bottom: 15px;
+}
+
+img:hover{
+  -webkit-filter: brightness(50%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+nav {
+  margin-right: 5%;
+  height: 40px;
+}
+a {
+  color: #1d1b1b;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(137, 137, 137);
+}

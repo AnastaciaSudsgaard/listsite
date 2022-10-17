@@ -1,0 +1,14 @@
+<div class="card-header d-flex justify-content-between">
+<%= link_to crime_lists_path, class: 'btn btn-dark' do %>
+    <i class='fas fa-angle-left'></i>
+    <% end %>
+<h5 class='m-0 text-dark'>
+New Crime List
+</h5>
+</div>
+
+<p></p>
+
+<%= render 'form', crime_list: @crime_list %>
+
+

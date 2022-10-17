@@ -1,0 +1,11 @@
+<div class="card-header d-flex justify-content-between">
+<h5 class='m-0 text-dark'>
+Editing Todo List</h5>
+
+
+
+<%= render 'form', todo_list: @todo_list %>
+
+<%= link_to 'Show', @todo_list %> |
+<%= link_to 'Back', todo_lists_path %>
+</div>

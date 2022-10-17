@@ -1,0 +1,76 @@
+<div class="card-header ">
+  <div class="row">
+    <div class="col-1">
+      <%= link_to crime_lists_path, class: 'btn btn-dark' do %>
+        <i class='fas fa-angle-left'></i>
+      <% end %>
+    </div>
+    <div class="col-11">
+      <div class=" d-flex justify-content-between">
+        <div >
+          <h5 class='m-0'>
+            <b><%= @crime_list.title %></b>
+            <span class="badge badge-<%= @crime_list.badge_color%>"><%= @crime_list.status %></span>
+          </h5>
+          <p class='text-secondary m-0'><small><%=@crime_list.percent_complete%>% Match (<%=@crime_list.completed_items%>/<%=@crime_list.total_items%> Evidence)</small></p>
+        </div>
+        <div>
+          <%= link_to 'Edit', edit_crime_list_path(@crime_list), class:'btn btn-secondary'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-body">
+  <div class="progress mb-4">
+    <div class="progress-bar bg-info" role="progressbar" style="width: <%=@crime_list.percent_complete%>%" aria-valuenow="<%=@crime_list.percent_complete%>" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <%= form_with(model: [@crime_list, @crime_item]) do |f| %>
+      <div class="input-group mb-4">
+        <%=f.text_field :description, class: 'form-control', placeholder: 'Add possible evidence'%>
+        <div class="input-group-append">
+          <%=f. submit "Add" ,class: "btn btn-primary input-group-btn"%>
+        </div>
+      </div>
+    <% end %>
+    <ul class='tasks-list'>
+
+      <% @crime_list.crime_items.each do |crime_item| %>
+        <% if crime_item.completed? %>
+          <li class='list-group-item bg-light'>
+            <div class="d-flex justify-content-between">
+              <span class='text-muted'>
+                <em><%= crime_item.description %></em>
+              </span>
+              <div>
+              <%= link_to '#', class: 'btn btn-dark btn-sm',data:{ reflex:'click->CrimeItemReflex#mark_incomplete', id: crime_item.id} do %>
+                <i class='fas fa-undo-alt'></i>
+              <% end %>
+              <%= link_to crime_list_crime_item_path(@crime_list,todo_item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary btn-sm' do %>
+                <i class="fas fa-times"></i>
+              <% end %>
+              </div>
+            </div>
+          </li>
+        <% else %>
+          <li class='list-group-item'>
+            <div class="d-flex justify-content-between">
+              <span>
+                <%= crime_item.description %>
+              </span>
+              <div>
+              <%= link_to '#', class: 'btn btn-info btn-sm', data:{ reflex:'click->CrimeItemReflex#mark_complete',id: crime_item.id } do %>
+                <i class='fas fa-check'></i>
+              <% end %>
+              <%= link_to crime_list_crime_item_path(@crime_list,todo_item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary btn-sm' do %>
+                <i class="fas fa-times"></i>
+              <% end %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

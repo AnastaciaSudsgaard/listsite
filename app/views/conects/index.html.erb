@@ -1,0 +1,22 @@
+
+<%=render 'form', conect: Conect. new %>
+  <% @conects.each do |conect| %>
+  <%= link_to conect do %>
+    <div class="card">
+      <div class="card-body">
+        <%= conect.name %>
+        <td><%= link_to 'Destroy', conect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<% if @conect.present?%>
+<% @conect.todo_list.each do |todo_list| %>
+<%= todo_list.content %>
+<% end %>
+  <%=render 'todo_lists/form',todo_list :TodoList.new, conect: @conect %>
+<% end %>
+
+
+

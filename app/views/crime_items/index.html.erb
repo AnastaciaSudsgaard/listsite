@@ -1,0 +1,38 @@
+<div class="card-header d-flex justify-content-between">
+  <%= link_to crime_lists_path, class: 'btn btn-dark' do %>
+  <i class='fas fa-angle-left'></i>
+  <% end %>
+  <h5 class='m-0 text-dark'>
+  Listing crime_items
+  </h5>
+</div>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Completed</th>
+    <th>Completed at</th>
+    <th>Crime list</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @crime_items.each do |crime_item| %>
+  <tr>
+    <td><%= crime_item.description %></td>
+    <td><%= crime_item.completed %></td>
+    <td><%= crime_item.completed_at %></td>
+    <td><%= crime_item.crime_list %></td>
+    <td><%= link_to 'Show', [crime_item.crime_list, crime_item] %></td>
+    <td><%= link_to 'Edit', edit_crime_list_crime_item_path(crime_item.crime_list, crime_item) %></td>
+    <td><%= link_to 'Destroy', [crime_item.crime_list, crime_item], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+
+<%= link_to 'New Crime item', new_crime_list_crime_item_path(params[:crime_list_id]),class:'btn btn-secondary' %>

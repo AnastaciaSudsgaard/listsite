@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @crime_item.description %>
+</p>
+
+<p>
+  <b>Completed:</b>
+  <%= @crime_item.completed %>
+</p>
+
+<p>
+  <b>Completed at:</b>
+  <%= @crime_item.completed_at %>
+</p>
+
+<p>
+  <b>Crime list:</b>
+  <%= @crime_item.crime_list %>
+</p>
+
+
+<%= link_to 'Edit', edit_crime_list_crime_item_path(@crime_item.crime_list, @crime_item) %> |
+<%= link_to 'Back', crime_list_crime_items_path(@crime_item.crime_list) %>
